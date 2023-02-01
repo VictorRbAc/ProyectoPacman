@@ -1,7 +1,26 @@
-.red{
-    background-color: red;
+.bolita{
+    background-image: url('images/bolita.png');
+    background-size: contain;
+    background-color: white;
+    background-repeat: no-repeat;
+    width: 20px;
+    height: 20px;
 }
 
 .blue{
     background-color: blue;
+    width: 20px;
+    height: 20px;
+}
+
+.white{
+    background-color: white;
+}
+
+body{
+    background-color: black;
+}
+
+.mainCharacter{
+    background-color: red;
 }

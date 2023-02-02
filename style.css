@@ -1,7 +1,10 @@
+
+.pasillo{
+    background-color: white;
+}
 .bolita{
     background-image: url('images/bolita.png');
     background-size: contain;
-    background-color: white;
     background-repeat: no-repeat;
     width: 20px;
     height: 20px;
@@ -13,9 +16,7 @@
     height: 20px;
 }
 
-.white{
-    background-color: white;
-}
+
 
 body{
     background-color: black;
@@ -23,4 +24,33 @@ body{
 
 .mainCharacter{
     background-color: red;
+}
+
+.enemy1{
+    background-image: url('images/enemy1.gif');
+    background-size: contain;
+    background-repeat: no-repeat;
+    width: 20px;
+    height: 20px;
+}
+.enemy2{
+    background-image: url('images/enemy2.gif');
+    background-size: contain;
+    background-repeat: no-repeat;
+    width: 20px;
+    height: 20px;
+}
+.enemy3{
+    background-image: url('images/enemy3.gif');
+    background-size: contain;
+    background-repeat: no-repeat;
+    width: 20px;
+    height: 20px;
+}
+.enemy4{
+    background-image: url('images/enemy4.gif');
+    background-size: contain;
+    background-repeat: no-repeat;
+    width: 20px;
+    height: 20px;
 }

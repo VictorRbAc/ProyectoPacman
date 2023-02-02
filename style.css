@@ -54,3 +54,15 @@ body{
     width: 20px;
     height: 20px;
 }
+
+
+#interface{
+    display: flex;
+}
+#scoreContainer{
+    width: 20%;
+    background-color: blueviolet;
+    color: white;
+    display: flex;
+    flex-direction: column;
+}

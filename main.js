@@ -1,3 +1,8 @@
+import {hola} from './sss.js';
+import {Enemy} from './enemy.js';
+import {MainCharacter} from './mainCharacter.js';
+hola();
+
 let map1 = [
 
   //Leyenda: 0 = muro
@@ -49,171 +54,8 @@ function createMap(mapa) {
   mapContainer.appendChild(table);
 }
 
-//ENEMY
-function Enemy(x, y, number) {
-  this.pos = {
-    x: x,
-    y: y
-  }
-
-  let self = this
-
-  this.number = number
-
-  this.direction = ''
-
-  this.insertEnemy = function () {
-    let startPosition = document.querySelector(`.row${this.pos.x} > .col${this.pos.y}`);
-    startPosition.classList.add(`enemy${this.number}`)
-  }
-
-  this.movement = function () {
-    let directions = ['up', 'down', 'left', 'right'];
-    this.direction = directions[Math.floor(Math.random() * 4)];
-
-    console.log(`Enemy${this.number}`)
-    //Pisción actual del enemigo cuando llamas a movement
-    let positionEnemy = document.querySelector(`.row${this.pos.x} > .col${this.pos.y}`);
-    
-    let newPosition;
-    switch (this.direction) {
-      case 'up':
-        //Posición a comprobar
-        newPosition = document.querySelector(`.row${this.pos.x - 1} > .col${this.pos.y}`);
-
-        if (newPosition.classList.contains('pasillo') ) {
-          //Removemos la clase enemigo de la posicion que está antes de moverse
-          positionEnemy.classList.remove(`enemy${this.number}`)
-          //Añadimos a la siguiente posición, la clase enemigo correspondiente
-          newPosition.classList.add(`enemy${this.number}`)
-          //Actualizamos la posición nueva que tiene el enemigo al moverse
-          this.pos.x -= 1          
-        }
-        break;
-
-      case 'down':
-        newPosition = document.querySelector(`.row${this.pos.x + 1} > .col${this.pos.y}`);
-        if (newPosition.classList.contains('pasillo')) {
-          //Removemos la clase enemigo de la posicion que está antes de moverse
-          positionEnemy.classList.remove(`enemy${this.number}`)
-          //Añadimos a la siguiente posición, la clase enemigo correspondiente
-          newPosition.classList.add(`enemy${this.number}`)
-          //Actualizamos la posición nueva que tiene el enemigo al moverse
-          this.pos.x += 1     
-        }
-        break;
-      case 'left':
-        newPosition = document.querySelector(`.row${this.pos.x} > .col${this.pos.y - 1}`);
-        if (newPosition.classList.contains('pasillo')) {
-          //Removemos la clase enemigo de la posicion que está antes de moverse
-          positionEnemy.classList.remove(`enemy${this.number}`)
-          //Añadimos a la siguiente posición, la clase enemigo correspondiente
-          newPosition.classList.add(`enemy${this.number}`)
-          //Actualizamos la posición nueva que tiene el enemigo al moverse
-          this.pos.y -= 1   
-        }
-        break;
-      case 'right':
-        newPosition = document.querySelector(`.row${this.pos.x} > .col${this.pos.y + 1}`);
-        if (newPosition.classList.contains('pasillo')) {
-          //Removemos la clase enemigo de la posicion que está antes de moverse
-          positionEnemy.classList.remove(`enemy${this.number}`)
-          //Añadimos a la siguiente posición, la clase enemigo correspondiente
-          newPosition.classList.add(`enemy${this.number}`)
-          //Actualizamos la posición nueva que tiene el enemigo al moverse
-          this.pos.y += 1   
-        }
-        break;
-    }
-  }
-}
-//MAIN CHARACTER
-function MainCharacter() {
-  this.pos = {
-    x: 5,
-    y: 4
-  }
-
-  this.direction = ''
-
-  this.insertMc = function () {
-    let startPosition = document.querySelector(`.row${this.pos.x} > .col${this.pos.y}`);
-    startPosition.classList.add('mainCharacter')
-  }
-
-  this.movement = function () {
-    
-    let positionMc = document.querySelector(`.row${this.pos.x} > .col${this.pos.y}`);
-    let newPosition
-    switch (this.direction) {
-      case 'up':
-        //Cambio la newPosition a la nueva que le he dado con la tecla up,
-        // pero no la cambio en el personaje
-        newPosition = document.querySelector(`.row${this.pos.x - 1} > .col${this.pos.y}`);
-        //Compruebo que si la siguiente casilla tiene la clase bolita, si la tiene , en la actual
-        //posicion remuevo la clase mainCharacter y añado la clase pasillo. Luego como ya se que la siguiente
-        //me puedo mover, en la nueva posicion le quito la clase bolita y añado la del mainCharacter
-        //dando así el efecto de moverse únicamente si en la siguiente casilla hay una bolita
-        //¡¡¡¡¡¡¡¡¡NOS FALTA COMPROBAR SI LA SIGUIENTE CASILLA ES PASILLO LIBRE Y SI ES MURO, LO HACEMOS MAÑANA!!!!!
-        if (newPosition.classList.contains('bolita') || newPosition.classList.contains('pasillo')) {
-          positionMc.classList.remove('mainCharacter');
 
 
-          this.pos.x -= 1
-
-          newPosition.classList.remove('bolita');
-
-          newPosition.classList.add('mainCharacter')
-        }
-        console.log(newPosition)
-        break
-      case 'down':
-        newPosition = document.querySelector(`.row${this.pos.x + 1} > .col${this.pos.y}`);
-
-        if (newPosition.classList.contains('bolita') || newPosition.classList.contains('pasillo')) {
-          newPosition.classList.remove('bolita');
-          newPosition.classList.add('mainCharacter')
-
-          positionMc.classList.remove('mainCharacter');
-
-
-          this.pos.x += 1
-
-
-        }
-        break
-      case 'left':
-        newPosition = document.querySelector(`.row${this.pos.x} > .col${this.pos.y - 1}`);
-
-        if (newPosition.classList.contains('bolita') || newPosition.classList.contains('pasillo')) {
-          positionMc.classList.remove('mainCharacter');
-
-
-          this.pos.y -= 1
-
-          newPosition.classList.remove('bolita');
-          newPosition.classList.add('mainCharacter')
-        }
-        break
-      case 'right':
-        newPosition = document.querySelector(`.row${this.pos.x} > .col${this.pos.y + 1}`);
-
-        if (newPosition.classList.contains('bolita') || newPosition.classList.contains('pasillo')) {
-          positionMc.classList.remove('mainCharacter');
-
-
-          this.pos.y += 1
-
-          newPosition.classList.remove('bolita');
-          newPosition.classList.add('mainCharacter')
-        }
-        break
-      default:
-        'right'
-        break;
-    }
-  }
-}
 
 window.addEventListener('keydown', function (e) { // Cambiamos la propiedad 'direction' de la serpiente según la tecla pulsada.
   switch (e.key) {
@@ -246,7 +88,7 @@ enemy1.insertEnemy();
 
 let timerId1 = setInterval(enemy1.movement, 1000);
 
-/*let enemy2 = new Enemy(13, 9, 2);
+let enemy2 = new Enemy(13, 9, 2);
 enemy2.insertEnemy();
 let timerId2 = setInterval(enemy2.movement, 1000);
 
@@ -258,4 +100,4 @@ let timerId3 = setInterval(enemy3.movement, 1000);
 
 let enemy4 = new Enemy(13, 11, 4);
 enemy4.insertEnemy();
-let timerId4 = setInterval(enemy4.movement, 1000);*/
+let timerId4 = setInterval(enemy4.movement, 1000);

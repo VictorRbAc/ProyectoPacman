@@ -1,12 +1,11 @@
-import { MainCharacter } from "./mainCharacter"
-
 //ENEMY
-function Enemy(x, y, number) {
+function Enemy(x, y, number, mc) {
     this.pos = {
       x: x,
       y: y
     }
-  
+    
+
     let self = this
   
     this.number = number
@@ -35,7 +34,8 @@ function Enemy(x, y, number) {
           if (newPosition.classList.contains('pasillo')) {
               //Metodo comprobar si hay persoajePrincipal siguiente casilla
             if(newPosition.classList.contains('mainCharacter')){
-              
+              mc.lives -= 1
+              console.log(mc.lives)
             }
             //Removemos la clase enemigo de la posicion que está antes de moverse
             positionEnemy.classList.remove(`enemy${self.number}`)
@@ -51,17 +51,26 @@ function Enemy(x, y, number) {
         case 'down':
           newPosition = document.querySelector(`.row${self.pos.x + 1} > .col${self.pos.y}`);
           if (newPosition.classList.contains('pasillo')) {
+            if(newPosition.classList.contains('mainCharacter')){
+              mc.lives -= 1
+              console.log(mc.lives)
+            }
             //Removemos la clase enemigo de la posicion que está antes de moverse
             positionEnemy.classList.remove(`enemy${self.number}`)
             //Añadimos a la siguiente posición, la clase enemigo correspondiente
             newPosition.classList.add(`enemy${self.number}`)
             //Actualizamos la posición nueva que tiene el enemigo al moverse
             self.pos.x += 1
+            
           }
           break;
         case 'left':
           newPosition = document.querySelector(`.row${self.pos.x} > .col${self.pos.y - 1}`);
           if (newPosition.classList.contains('pasillo')) {
+            if(newPosition.classList.contains('mainCharacter')){
+              mc.lives -= 1
+              console.log(mc.lives)
+            }
             //Removemos la clase enemigo de la posicion que está antes de moverse
             positionEnemy.classList.remove(`enemy${self.number}`)
             //Añadimos a la siguiente posición, la clase enemigo correspondiente
@@ -73,6 +82,10 @@ function Enemy(x, y, number) {
         case 'right':
           newPosition = document.querySelector(`.row${self.pos.x} > .col${self.pos.y + 1}`);
           if (newPosition.classList.contains('pasillo')) {
+            if(newPosition.classList.contains('mainCharacter')){
+              mc.lives -= 1
+              console.log(mc.lives)
+            }
             //Removemos la clase enemigo de la posicion que está antes de moverse
             positionEnemy.classList.remove(`enemy${self.number}`)
             //Añadimos a la siguiente posición, la clase enemigo correspondiente

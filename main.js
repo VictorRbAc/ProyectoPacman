@@ -27,30 +27,31 @@ let map1 = [
   [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
 ];
 
-function createMap(mapa) {
-  let mapContainer = document.querySelector('#mapContainer');
-  let table = document.createElement('table');
+function createMap(map1) {
 
-  mapa.forEach(function (row, idx) {
-    let tr = document.createElement('tr');
-    tr.setAttribute("class", `row${idx}`);
-    row.forEach(function (col, idx) {
+      let mapContainer = document.querySelector('#mapContainer');
+      let table = document.createElement('table');
 
-      //HAY QUE CAMBIAR LO DE CLASS Y USAR CLASSLIST ADD O ALGO ASI
-      let td = document.createElement('td');
-      if (col === 1) {
-        td.classList.add(`col${idx}`, 'pasillo', 'bolita');
-      } else if (col === 0) {
-        td.classList.add(`col${idx}`, `blue`);
-      } else if (col === 2) {
-        td.classList.add(`col${idx}`, `pasillo`);
-      }
-      tr.appendChild(td);
-    });
-    table.appendChild(tr);
-  });
-  mapContainer.appendChild(table);
-}
+      map1.forEach(function (row, idx) {
+          let tr = document.createElement('tr');
+          tr.setAttribute("class", `row${idx}`);
+          row.forEach(function (col, idx) {
+
+              let td = document.createElement('td');
+              if (col === 1) {
+                  td.classList.add(`col${idx}`, 'pasillo', 'bolita');
+              } else if (col === 0) {
+                  td.classList.add(`col${idx}`, `blue`);
+              } else if (col === 2) {
+                  td.classList.add(`col${idx}`, `pasillo`);
+              }
+              tr.appendChild(td);
+          });
+          table.appendChild(tr);
+      });
+      mapContainer.appendChild(table);
+  }
+
 
 
 
@@ -81,21 +82,21 @@ createMap(map1)
 let pacman = new MainCharacter();
 pacman.insertMc();
 
-let enemy1 = new Enemy(12, 9, 1);
+let enemy1 = new Enemy(12, 9, 1,pacman);
 enemy1.insertEnemy();
 
 let timerId1 = setInterval(enemy1.movement, 1000);
 
-let enemy2 = new Enemy(13, 9, 2);
+let enemy2 = new Enemy(13, 9, 2,pacman);
 enemy2.insertEnemy();
 let timerId2 = setInterval(enemy2.movement, 1000);
 
 
-let enemy3 = new Enemy(12, 11, 3);
+let enemy3 = new Enemy(12, 11, 3,pacman);
 enemy3.insertEnemy();
 let timerId3 = setInterval(enemy3.movement, 1000);
 
 
-let enemy4 = new Enemy(13, 11, 4);
+let enemy4 = new Enemy(13, 11, 4,pacman);
 enemy4.insertEnemy();
 let timerId4 = setInterval(enemy4.movement, 1000);

@@ -1,101 +1,86 @@
 //ENEMY
 function Enemy(x, y, number, mc) {
-    this.pos = {
-      x: x,
-      y: y
-    }
-    
+  this.pos = {
+    x: x,
+    y: y
+  }
 
-    let self = this
-  
-    this.number = number
-  
-    this.direction = ''
-  
-    this.insertEnemy = function () {
-      let startPosition = document.querySelector(`.row${this.pos.x} > .col${this.pos.y}`);
-      startPosition.classList.add(`enemy${this.number}`)
-    }
-  
-    this.movement = function () {
-      let directions = ['up', 'down', 'left', 'right'];
-      self.direction = directions[Math.floor(Math.random() * 4)];
-  
-//      console.log(`Enemy${self.number}`)
-      //Pisción actual del enemigo cuando llamas a movement
-      let positionEnemy = document.querySelector(`.row${self.pos.x} > .col${self.pos.y}`);
-  
-      let newPosition;
-      switch (self.direction) {
-        case 'up':
-          //Posición a comprobar
-          newPosition = document.querySelector(`.row${self.pos.x - 1} > .col${self.pos.y}`);
-  
-          if (newPosition.classList.contains('pasillo')) {
-              //Metodo comprobar si hay persoajePrincipal siguiente casilla
-            if(newPosition.classList.contains('mainCharacter')){
-              mc.lives -= 1
-              console.log(mc.lives)
-            }
-            //Removemos la clase enemigo de la posicion que está antes de moverse
-            positionEnemy.classList.remove(`enemy${self.number}`)
-            //Añadimos a la siguiente posición, la clase enemigo correspondiente
-            newPosition.classList.add(`enemy${self.number}`)
-            //Actualizamos la posición nueva que tiene el enemigo al moverse
-            self.pos.x -= 1
-          }
 
-          
-          break;
-  
-        case 'down':
-          newPosition = document.querySelector(`.row${self.pos.x + 1} > .col${self.pos.y}`);
-          if (newPosition.classList.contains('pasillo')) {
-            if(newPosition.classList.contains('mainCharacter')){
-              mc.lives -= 1
-              console.log(mc.lives)
-            }
-            //Removemos la clase enemigo de la posicion que está antes de moverse
-            positionEnemy.classList.remove(`enemy${self.number}`)
-            //Añadimos a la siguiente posición, la clase enemigo correspondiente
-            newPosition.classList.add(`enemy${self.number}`)
-            //Actualizamos la posición nueva que tiene el enemigo al moverse
-            self.pos.x += 1
-            
-          }
-          break;
-        case 'left':
-          newPosition = document.querySelector(`.row${self.pos.x} > .col${self.pos.y - 1}`);
-          if (newPosition.classList.contains('pasillo')) {
-            if(newPosition.classList.contains('mainCharacter')){
-              mc.lives -= 1
-              console.log(mc.lives)
-            }
-            //Removemos la clase enemigo de la posicion que está antes de moverse
-            positionEnemy.classList.remove(`enemy${self.number}`)
-            //Añadimos a la siguiente posición, la clase enemigo correspondiente
-            newPosition.classList.add(`enemy${self.number}`)
-            //Actualizamos la posición nueva que tiene el enemigo al moverse
-            self.pos.y -= 1
-          }
-          break;
-        case 'right':
-          newPosition = document.querySelector(`.row${self.pos.x} > .col${self.pos.y + 1}`);
-          if (newPosition.classList.contains('pasillo')) {
-            if(newPosition.classList.contains('mainCharacter')){
-              mc.lives -= 1
-              console.log(mc.lives)
-            }
-            //Removemos la clase enemigo de la posicion que está antes de moverse
-            positionEnemy.classList.remove(`enemy${self.number}`)
-            //Añadimos a la siguiente posición, la clase enemigo correspondiente
-            newPosition.classList.add(`enemy${self.number}`)
-            //Actualizamos la posición nueva que tiene el enemigo al moverse
-            self.pos.y += 1
-          }
-          break;
+  let self = this
+
+
+  this.number = number
+
+  let startPosition = document.querySelector(`.row${this.pos.x} > .col${this.pos.y}`);
+  startPosition.classList.add(`enemy${this.number}`)
+
+  this.direction = ''
+
+  //Función para comprobar siguiente casilla aleatoria del enemigo
+  this.checkNext = function (nextX, nextY) {
+    let directions = ['up', 'down', 'left', 'right'];
+    self.direction = directions[Math.floor(Math.random() * 4)];
+
+    let positionEnemy = document.querySelector(`.row${nextX} > .col${nextY}`);
+
+    let x = 0;
+    let y = 0;
+    switch (self.direction) {
+      case 'up':
+        x -= 1;
+        break;
+      case 'down':
+        x += 1;
+        break;
+      case 'left':
+        y -= 1;
+        break;
+      case 'right':
+        y += 1;
+        break;
+    }
+
+    let newPosition = document.querySelector(`.row${self.pos.x + x} > .col${self.pos.y + y}`);
+    if (newPosition.classList.contains('pasillo')) {
+      if (newPosition.classList.contains('mainCharacter')) {
+        mc.lives -= 1
       }
+      positionEnemy.classList.remove(`enemy${self.number}`)
+      newPosition.classList.add(`enemy${self.number}`)
+      self.pos.x += x;
+      self.pos.y += y;
     }
   }
 
-  export {Enemy};
+  this.movement = function () {
+    let directions = ['up', 'down', 'left', 'right'];
+    self.direction = directions[Math.floor(Math.random() * 4)];
+
+    //      console.log(`Enemy${self.number}`)
+    //Pisción actual del enemigo cuando llamas a movement
+    let positionEnemy = document.querySelector(`.row${self.pos.x} > .col${self.pos.y}`);
+
+    let newPosition;
+    switch (self.direction) {
+
+      case 'up':
+        self.checkNext(self.pos.x, self.pos.y)
+        break;
+
+      case 'down':
+        self.checkNext(self.pos.x, self.pos.y)
+        break;
+
+      case 'left':
+        self.checkNext(self.pos.x, self.pos.y)
+        break;
+
+      case 'right':
+        self.checkNext(self.pos.x, self.pos.y)
+        break;
+    }
+  }
+  //this.timerId = setInterval(this.movement, 1000)
+
+}
+export { Enemy }

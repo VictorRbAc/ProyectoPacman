@@ -1,7 +1,5 @@
-import {hola} from './sss.js';
 import {Enemy} from './enemy.js';
 import {MainCharacter} from './mainCharacter.js';
-hola();
 
 let map1 = [
 

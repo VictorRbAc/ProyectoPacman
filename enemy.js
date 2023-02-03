@@ -1,3 +1,5 @@
+import { MainCharacter } from "./mainCharacter"
+
 //ENEMY
 function Enemy(x, y, number) {
     this.pos = {
@@ -20,7 +22,7 @@ function Enemy(x, y, number) {
       let directions = ['up', 'down', 'left', 'right'];
       self.direction = directions[Math.floor(Math.random() * 4)];
   
-      console.log(`Enemy${self.number}`)
+//      console.log(`Enemy${self.number}`)
       //Pisción actual del enemigo cuando llamas a movement
       let positionEnemy = document.querySelector(`.row${self.pos.x} > .col${self.pos.y}`);
   
@@ -31,6 +33,10 @@ function Enemy(x, y, number) {
           newPosition = document.querySelector(`.row${self.pos.x - 1} > .col${self.pos.y}`);
   
           if (newPosition.classList.contains('pasillo')) {
+              //Metodo comprobar si hay persoajePrincipal siguiente casilla
+            if(newPosition.classList.contains('mainCharacter')){
+              
+            }
             //Removemos la clase enemigo de la posicion que está antes de moverse
             positionEnemy.classList.remove(`enemy${self.number}`)
             //Añadimos a la siguiente posición, la clase enemigo correspondiente
@@ -38,6 +44,8 @@ function Enemy(x, y, number) {
             //Actualizamos la posición nueva que tiene el enemigo al moverse
             self.pos.x -= 1
           }
+
+          
           break;
   
         case 'down':

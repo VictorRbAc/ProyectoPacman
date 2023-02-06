@@ -49,8 +49,11 @@ function Enemy(x, y, number, mc) {
         //ABIAN
         //Pacman vuelve al punto de partida cuando le toca un enemigo
         newPosition.classList.remove('mainCharacter')
-        mc.pos.x = 4
-        mc.pos.y = 5
+        mc.pos.x = 5
+        mc.pos.y = 4
+        //Dibujar de nuevo personaje
+        let mcStartPosition = document.querySelector(`.row${mc.pos.x} > .col${mc.pos.y}`);
+        mcStartPosition.classList.add('mainCharacter')
       }
       positionEnemy.classList.remove(`enemy${self.number}`)
       newPosition.classList.add(`enemy${self.number}`)

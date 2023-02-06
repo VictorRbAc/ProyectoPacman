@@ -15,7 +15,7 @@ let map1 = [
   [0, 1, 1, 1, 2, 1, 1, 1, 1, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 0],
   [0, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 1, 0],
   [0, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 0],
-  [0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0],
+  [0, 1, 0, 0, 0, 0, 0, 0, 3, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0],
   [0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0],
   [0, 0, 1, 0, 0, 0, 0, 1, 1, 2, 2, 2, 1, 1, 0, 0, 0, 1, 0, 0],
   [0, 1, 1, 1, 1, 1, 1, 1, 0, 0, 2, 0, 0, 1, 1, 1, 1, 1, 1, 0],
@@ -72,7 +72,6 @@ function Game() {
     enemy4.movement();
     self.gameOver();
     self.victory();
-
   }
   //ABIAN
   //Pantalla de inicio (82-92)
@@ -83,7 +82,7 @@ function Game() {
     let button = document.getElementById('start-btn')
     button.style.visibility = 'hidden'
     menu.style.visibility = 'hidden'
-    timerId = setInterval(game.play, 300);
+    timerId = setInterval(game.play,300);
 
   })
 

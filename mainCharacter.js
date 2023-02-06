@@ -61,7 +61,7 @@ function MainCharacter() {
         this.eatDotSound.dura
         let interfaceScore = document.getElementById('currentScore')
 
-        this.score = this.score + 100;
+        this.score = this.score + 50;
         interfaceScore.innerText = this.score;
         
       }
@@ -83,6 +83,9 @@ function MainCharacter() {
         newPosition.classList.remove('mainCharacter')
         this.pos.x = 5
         this.pos.y = 4
+        //Dibujar de nuevo personaje
+        let startPosition = document.querySelector(`.row${this.pos.x} > .col${this.pos.y}`);
+        startPosition.classList.add('mainCharacter')
       } else {
         positionMc.classList.remove('mainCharacter');
         newPosition.classList.remove('bolita');

@@ -19,6 +19,8 @@ function MapCreator(map) {
                     td.classList.add(`col${idx}`, `blue`);
                 } else if (col === 2) {
                     td.classList.add(`col${idx}`, `pasillo`);
+                }else if(col === 3){
+                    td.classList.add(`col${idx}`, `pasillo`);
                 }
                 tr.appendChild(td);
             });

@@ -11,16 +11,16 @@
 }
 
 .blue{
-    background-color: blue;
+    background-image: url('images/wall.jpg');
+    background-size: contain;
+    background-repeat: no-repeat;
     width: 20px;
     height: 20px;
 }
 
 
 
-body{
-    background-color: black;
-}
+
 
 .mainCharacter{
     /*background-image: url('images/pacman.gif');
@@ -34,45 +34,74 @@ body{
 }
 
 .enemy1{
-    background-image: url('images/giphy.gif');
+    background-image: url('images/clickError.gif');
     background-size: contain;
     background-repeat: no-repeat;
     width: 20px;
     height: 20px;
 }
 .enemy2{
-    background-image: url('images/enemy2.gif');
+    background-image: url('images/error420.gif');
     background-size: contain;
     background-repeat: no-repeat;
     width: 20px;
     height: 20px;
 }
 .enemy3{
-    background-image: url('images/enemy3.gif');
+    background-image: url('images/blueScreen.gif');
     background-size: contain;
     background-repeat: no-repeat;
     width: 20px;
     height: 20px;
 }
 .enemy4{
-    background-image: url('images/enemy4.gif');
-    background-size: contain;
+    background-image: url('images/system-failure.gif');
+    background-size: 100% 100%;
     background-repeat: no-repeat;
-    width: 20px;
-    height: 20px;
+    background-position: center;
 }
+
+body{
+    display: flex;
+    justify-content: center;
+    overflow: hidden;
+    height: 100vh;
+    background: linear-gradient(
+        0deg,
+        rgb(23, 65, 202) 0%,
+        rgb(173, 128, 29) 100%
+    )
+}
+
 
 
 #interface{
     display: flex;
+    box-shadow: 10px 10px 20px black;
+    border-radius: 5px;
+    overflow: hidden;
+    flex-direction: column;
+    width: auto;
 }
+
 #scoreContainer{
-    width: 20%;
-    background-color: blueviolet;
+    font-family: 'Press Start 2P', cursive;
+    font-size: 14px;
     color: white;
     display: flex;
-    flex-direction: column;
+    align-items: center;
+    background-color: black;
 }
+
+#scoreContainer > img{
+    height: 80px;
+    background-size: contain;
+}
+
+#scoreContainer label{    
+    display: block;
+}
+
 
 /*ABIAN*/
 #start-menu {
@@ -117,9 +146,10 @@ body{
 }
 
 h1 {
-    font: italic small-caps bold 16px/2 cursive;
-    font-size: 30px;
-    margin-bottom: 60%;
+    text-align: center;
+    font-family: 'Press Start 2P', cursive;
+    color: lightgrey;
+    margin: 0;
 }
 
 #game-over {

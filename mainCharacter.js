@@ -45,11 +45,11 @@ function MainCharacter() {
         break;
       case 'left':
         y -= 1;
-        mainC.style.transform = 'scaleX(-1)';
+        //mainC.style.transform = 'scaleX(-1)';
         break;
       case 'right':
         y += 1;
-        mainC.style.transform = 'scaleX(1)';
+        //mainC.style.transform = 'scaleX(1)';
         break;
     }
     //Posición a la que me quiero mover con la variable x e y ya cambiada
@@ -57,8 +57,8 @@ function MainCharacter() {
     if (newPosition.classList.contains('bolita') || newPosition.classList.contains('pasillo')) {
 
       if (newPosition.classList.contains('bolita')) {
-
         this.eatDotSound.play();
+        this.eatDotSound.dura
         let interfaceScore = document.getElementById('currentScore')
 
         this.score = this.score + 100;

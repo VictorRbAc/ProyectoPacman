@@ -8,22 +8,22 @@ let map1 = [
   //         1 = bolita
   //         2 = pasillo
   [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-  [0, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-  [0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-  [0, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-  [0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-  [0, 1, 1, 1, 2, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-  [0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-  [0, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-  [0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-  [0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0],
-  [0, 0, 0, 0, 0, 0, 0, 1, 1, 2, 2, 2, 1, 2, 0, 0, 0, 0, 0, 0],
-  [0, 1, 1, 1, 1, 1, 1, 1, 0, 0, 2, 0, 0, 2, 0, 0, 0, 0, 0, 0],
-  [0, 1, 0, 0, 0, 0, 0, 1, 0, 2, 2, 2, 0, 1, 0, 0, 0, 0, 0, 0],
-  [0, 1, 0, 0, 0, 0, 0, 1, 0, 2, 2, 2, 0, 1, 0, 0, 0, 0, 0, 0],
-  [0, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0],
-  [0, 1, 0, 0, 0, 0, 0, 1, 2, 2, 2, 2, 1, 1, 0, 0, 0, 0, 0, 0],
-  [0, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0],
+  [0, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 0],
+  [0, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 1, 0],
+  [0, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 0],
+  [0, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 1, 0],
+  [0, 1, 1, 1, 2, 1, 1, 1, 1, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 0],
+  [0, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 1, 0],
+  [0, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 0],
+  [0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0],
+  [0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0],
+  [0, 0, 1, 0, 0, 0, 0, 1, 1, 2, 2, 2, 1, 1, 0, 0, 0, 1, 0, 0],
+  [0, 1, 1, 1, 1, 1, 1, 1, 0, 0, 2, 0, 0, 1, 1, 1, 1, 1, 1, 0],
+  [0, 1, 0, 0, 0, 0, 0, 1, 0, 2, 2, 2, 0, 1, 0, 0, 0, 0, 1, 0],
+  [0, 1, 0, 0, 0, 0, 0, 1, 0, 2, 2, 2, 0, 1, 0, 0, 0, 0, 1, 0],
+  [0, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 0],
+  [0, 1, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 1, 0],
+  [0, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0],
   [0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0],
   [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
 ];
@@ -62,7 +62,7 @@ let enemy4 = new Enemy(13, 11, 4, pacman);
 function Game() {
 
   let self = this
-  
+
   this.play = function () {
 
     pacman.movement();
@@ -71,18 +71,67 @@ function Game() {
     enemy3.movement();
     enemy4.movement();
     self.gameOver();
+    self.victory();
 
   }
+  //ABIAN
+  //Pantalla de inicio (82-92)
+  let button = document.getElementById('start-btn')
+  let menu = document.getElementById('start-menu')
+  let timerId
+  button.addEventListener('click', function (e) {
+    let button = document.getElementById('start-btn')
+    button.style.visibility = 'hidden'
+    menu.style.visibility = 'hidden'
+    timerId = setInterval(game.play, 300);
+
+  })
+
+
+  //pantalla de Game Over (98-106)
+  let gameOverScreen = document.getElementById('game-over-screen')
+  let gameOver = document.getElementById('game-over')
+  let restartBtn = document.getElementById('restart-btn')
   this.gameOver = function () {
     if (pacman.lives <= 0) {
+      gameOverScreen.style.visibility = 'visible'
+      gameOver.style.visibility = 'visible'
+      restartBtn.style.visibility = 'visible'
       clearInterval(timerId)
-      window.alert('Game Over')
+    }
+    //Boton de Restart tras el Game Over (falta que se reinicie el mapa)
+    restartBtn.addEventListener('click', function (e) {
+      gameOverScreen.style.visibility = 'hidden'
+      gameOver.style.visibiliy = 'hidden'
+      restartBtn.style.visibility = 'hidden'
+      button.style.visibility = 'visible'
+      menu.style.visibility = 'visible'
+    })
+    /*this.gameOver = function () {
+      if (pacman.lives <= 0) {
+        clearInterval(timerId)
+        window.alert('Game Over')
+      }
+    }*/
+  }
+  let victoryContainer = document.getElementById('victory-container')
+  console.log(pacman.score)
+  this.victory = function() {
+    console.log(pacman.score)
+    if(pacman.score > 20000){
+      
+      victoryContainer.style.visibility = 'visible'
+      clearInterval(timerId)
     }
   }
+
+
 }
+
+
 let game = new Game();
 
-let timerId = setInterval(game.play, 1000);
+//let timerId = setInterval(game.play, 1000);
 
 
 /*

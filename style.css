@@ -1,13 +1,13 @@
-
 .pasillo{
-    background-color: white;
+    background-color: black;
 }
 .bolita{
-    background-image: url('images/bolita.png');
+    background-image: url('images/pc.png');
     background-size: contain;
     background-repeat: no-repeat;
-    width: 20px;
-    height: 20px;
+    background-size: 60%;
+    background-position: center;
+    
 }
 
 .blue{
@@ -23,7 +23,14 @@ body{
 }
 
 .mainCharacter{
-    background-color: red;
+    /*background-image: url('images/pacman.gif');
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;*/
+    background-image: url('images/informatico.gif');
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
 }
 
 .enemy1{
@@ -65,4 +72,81 @@ body{
     color: white;
     display: flex;
     flex-direction: column;
+}
+
+/*ABIAN*/
+#start-menu {
+    background-image: -webkit-linear-gradient(top, #b82b2b, #d9cb34);
+    border-style: solid;
+    border-color: black;
+    display: flex;
+    position: absolute;
+    width: 30%;
+    height: 50%;
+    align-content: center;
+    justify-content: center;
+    text-align: top;
+    align-items: center;
+    margin-left: 13%;
+    margin-top: 6%;
+    border-width: 4px;
+    visibility: visible;
+}
+
+#start-btn {
+    display: flex;
+    position: absolute;
+    border-style: solid;
+    width: 80px;
+    justify-content: center;
+    margin-left: 25%;
+    margin-top: 25%;
+    border-radius: 50%;
+    border-width: 3px;
+    font-size: 20px;
+    font-weight: 600;
+    background: #d9cb34;
+    border-radius: 28px;
+    border-color: rgba(7, 0, 0, 0.884);
+    visibility: visible;
+
+}
+
+#start-btn:active {
+    background-color: darkorange;
+}
+
+h1 {
+    font: italic small-caps bold 16px/2 cursive;
+    font-size: 30px;
+    margin-bottom: 60%;
+}
+
+#game-over {
+    position: absolute;
+    width: 20%;
+    height: 30%;
+    margin-left: 13%;
+    margin-top: 8%;
+}
+
+
+#game-over-screen {
+    display: flex;
+    position: absolute;
+    height: 130%;
+    margin-top: 8%;
+    visibility: hidden;
+}
+
+#restart-btn {
+    position: absolute;
+    margin-left: 76%;
+    margin-top: 90%;
+    visibility: hidden;
+}
+#victory-container{
+    color: white;
+    position: absolute;
+    visibility: hidden;
 }

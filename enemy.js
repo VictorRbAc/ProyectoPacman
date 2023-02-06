@@ -43,7 +43,14 @@ function Enemy(x, y, number, mc) {
     let newPosition = document.querySelector(`.row${self.pos.x + x} > .col${self.pos.y + y}`);
     if (newPosition.classList.contains('pasillo')) {
       if (newPosition.classList.contains('mainCharacter')) {
+        mc.eatDotSound.pause()
+        mc.deathSound.play()
         mc.lives -= 1
+        //ABIAN
+        //Pacman vuelve al punto de partida cuando le toca un enemigo
+        newPosition.classList.remove('mainCharacter')
+        mc.pos.x = 4
+        mc.pos.y = 5
       }
       positionEnemy.classList.remove(`enemy${self.number}`)
       newPosition.classList.add(`enemy${self.number}`)

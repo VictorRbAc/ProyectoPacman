@@ -5,6 +5,7 @@ function MapCreator(map) {
     this.createMap = function () {
         let mapContainer = document.querySelector('#mapContainer');
         let table = document.createElement('table');
+        table.style.borderCollapse = 'collapse'
 
         map.forEach(function (row, idx) {
             let tr = document.createElement('tr');

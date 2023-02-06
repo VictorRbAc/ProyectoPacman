@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,14 +8,26 @@
     <title>PacMan</title>
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
+    <div id="start-menu"><h1>Pacman</h1></div>  
+        <button id="start-btn">Start</button>
+    <div>
     <div id="interface">
         <div id="mapContainer">
-        
+
         </div>
         <div id="scoreContainer">
-            <label>Current Score:  <span id="currentScore">0</span> points</label>
-            <label>Max Score:  <span id="maxScore">0</span> points</label>
+            <label>Current Score: <span id="currentScore">0</span> points</label>
+            <label>Max Score: <span id="maxScore">0</span> points</label>
+            <label>Lives: <span id="lives">0</span></label>
+        </div>
+        <div id="victory-container">
+            <h1 >You won!</h1>
+        </div>
+        <div id="game-over">
+            <img id="game-over-screen" src=https://portal.33bits.net/wp-content/uploads/2018/12/gameoverphrase.jpg>
+            <button id="restart-btn">Restart</button>
         </div>
     </div>
     
@@ -22,4 +35,5 @@
 
     <script src="main.js" type="module"></script>
 </body>
+
 </html>

@@ -82,7 +82,7 @@ function Game() {
     let button = document.getElementById('start-btn')
     button.style.visibility = 'hidden'
     menu.style.visibility = 'hidden'
-    timerId = setInterval(game.play,300);
+    timerId = setInterval(game.play,800);
 
   })
 
@@ -93,6 +93,8 @@ function Game() {
   let restartBtn = document.getElementById('restart-btn')
   this.gameOver = function () {
     if (pacman.lives <= 0) {
+      pacman.deathSound.pause();
+      pacman.gameOverSound.play();
       gameOverScreen.style.visibility = 'visible'
       gameOver.style.visibility = 'visible'
       restartBtn.style.visibility = 'visible'
@@ -117,8 +119,8 @@ function Game() {
   console.log(pacman.score)
   this.victory = function() {
     console.log(pacman.score)
-    if(pacman.score > 20000){
-      
+    if(pacman.score > 10000){
+      pacman.victorySound.play()
       victoryContainer.style.visibility = 'visible'
       clearInterval(timerId)
     }

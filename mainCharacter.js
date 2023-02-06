@@ -15,8 +15,10 @@ function MainCharacter() {
 
   this.direction = ''
   //Sounds
-  this.eatDotSound = new Audio('sounds/pacman_chomp.wav')
-  this.deathSound = new Audio('sounds/pacman_death.wav')
+  this.keyboardSound = new Audio('sounds/keyboardSound.mp3')
+  this.deathSound = new Audio('sounds/deathSound.mp3')
+  this.victorySound = new Audio('sounds/victorySound.mp3')
+  this.gameOverSound = new Audio('sounds/this.gameOverSound.mp3')
 
   let startPosition = document.querySelector(`.row${this.pos.x} > .col${this.pos.y}`);
   startPosition.classList.add('mainCharacter')
@@ -57,8 +59,7 @@ function MainCharacter() {
     if (newPosition.classList.contains('bolita') || newPosition.classList.contains('pasillo')) {
 
       if (newPosition.classList.contains('bolita')) {
-        this.eatDotSound.play();
-        this.eatDotSound.dura
+        this.keyboardSound.play();
         let interfaceScore = document.getElementById('currentScore')
 
         this.score = this.score + 50;

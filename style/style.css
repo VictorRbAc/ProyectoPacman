@@ -2,7 +2,7 @@
     background-color: black;
 }
 .pc{
-    background-image: url('/assets/images/pc.png');
+    background-image: url('./assets/images/pc.png');
     background-size: contain;
     background-repeat: no-repeat;
     background-size: 60%;
@@ -11,7 +11,7 @@
 }
 
 .wall{
-    background-image: url('/assets/images/wall.jpg');
+    background-image: url('./assets/images/wall.jpg');
     background-size: contain;
     background-repeat: no-repeat;
     width: 20px;
@@ -19,35 +19,35 @@
 }
 
 .mainCharacter{
-    background-image: url('/assets/images/developer.gif');
+    background-image: url('./assets/images/developer.gif');
     background-position: center;
     background-size: contain;
     background-repeat: no-repeat;
 }
 
 .enemy1{
-    background-image: url('/assets/images/clickError.gif');
+    background-image: url('./assets/images/clickError.gif');
     background-size: contain;
     background-repeat: no-repeat;
     width: 20px;
     height: 20px;
 }
 .enemy2{
-    background-image: url('/assets/images/error420.gif');
+    background-image: url('./assets/images/error420.gif');
     background-size: contain;
     background-repeat: no-repeat;
     width: 20px;
     height: 20px;
 }
 .enemy3{
-    background-image: url('/assets/images/blueScreen.gif');
+    background-image: url('./assets/images/blueScreen.gif');
     background-size: contain;
     background-repeat: no-repeat;
     width: 20px;
     height: 20px;
 }
 .enemy4{
-    background-image: url('/assets/images/system-failure.gif');
+    background-image: url('./assets/images/system-failure.gif');
     background-size: 100% 100%;
     background-repeat: no-repeat;
     background-position: center;

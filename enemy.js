@@ -11,6 +11,9 @@ function Enemy(x, y, number, mc) {
 
   this.number = number
 
+  let livesHtml = document.getElementById('lives');
+  livesHtml.innerText = mc.lives;
+
   let startPosition = document.querySelector(`.row${this.pos.x} > .col${this.pos.y}`);
   startPosition.classList.add(`enemy${this.number}`)
 
@@ -43,9 +46,10 @@ function Enemy(x, y, number, mc) {
     let newPosition = document.querySelector(`.row${self.pos.x + x} > .col${self.pos.y + y}`);
     if (newPosition.classList.contains('pasillo')) {
       if (newPosition.classList.contains('mainCharacter')) {
-        mc.eatDotSound.pause()
+        //mc.keyboardSound.pause()
         mc.deathSound.play()
         mc.lives -= 1
+        livesHtml.innerText = mc.lives;
         //ABIAN
         //Pacman vuelve al punto de partida cuando le toca un enemigo
         newPosition.classList.remove('mainCharacter')

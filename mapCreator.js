@@ -2,8 +2,9 @@ function MapCreator(map) {
 
     this.map = map;
 
+    let mapContainer = document.querySelector('#mapContainer');
+
     this.createMap = function () {
-        let mapContainer = document.querySelector('#mapContainer');
         let table = document.createElement('table');
         table.style.borderCollapse = 'collapse'
 
@@ -27,6 +28,12 @@ function MapCreator(map) {
             table.appendChild(tr);
         });
         mapContainer.appendChild(table);
+    }
+    this.removeMap = function(){
+        let childs = document.querySelectorAll('#mapContainer > *')
+        for (let i = 0; i < childs.length; i++) {
+            mapContainer.removeChild(childs[i])
+        }
     }
 }
 

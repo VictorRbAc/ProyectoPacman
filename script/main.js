@@ -1,6 +1,6 @@
-import { Enemy } from '/script/enemy.js';
-import { MainCharacter } from '/script/mainCharacter.js';
-import { MapCreator } from '/script/mapCreator.js';
+import { Enemy } from './enemy.js';
+import { MainCharacter } from './mainCharacter.js';
+import { MapCreator } from './mapCreator.js';
 
 // 0 = wall
 // 1 = pc

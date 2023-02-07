@@ -85,7 +85,7 @@ function Game() {
     lives.innerText = 3;
     scoreHtml.innerText = 0;
     maxScoreHtml.innerText = 0;
-    timerId = setInterval(game.play, 400);
+    timerId = setInterval(game.play, 1000);
   }
 
   this.play = function () {
@@ -109,7 +109,7 @@ function Game() {
     menu.style.visibility = 'hidden'
     self.backGroundMusic.volume = 0.2;
     self.backGroundMusic.play();
-    timerId = setInterval(game.play, 400);
+    timerId = setInterval(game.play, 1000);
   })
 
   //pantalla de Game Over (98-106)
@@ -146,6 +146,8 @@ function Game() {
 
   this.victory = function () {
     console.log(developer.score)
+    //8600 puntos serían en total con los pc que hay para recogerlos todo
+    //Ponemos 1000 puntos para el deploy probarlo todo rápido
     if (developer.score === 1000) {
       self.backGroundMusic.pause();
       developer.victorySound.play();

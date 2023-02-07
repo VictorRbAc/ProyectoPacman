@@ -61,7 +61,7 @@ function Game() {
 
   let self = this
 
-  this.backGroundMusic = new Audio('/assets/sounds/backGroundMusic.mp3')
+  this.backGroundMusic = new Audio('./assets/sounds/backGroundMusic.mp3')
 
   let scoreHtml = document.getElementById('currentScore')
   let maxScoreHtml = document.getElementById('maxScore')

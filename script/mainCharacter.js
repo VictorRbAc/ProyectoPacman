@@ -15,10 +15,10 @@ function MainCharacter() {
   this.direction = ''
 
   //Sounds
-  this.keyboardSound = new Audio('../assets/sounds/keyboardSound.mp3')
-  this.deathSound = new Audio('../assets/sounds/deathSound.mp3')
-  this.victorySound = new Audio('../assets/sounds/victorySound.mp3')
-  this.gameOverSound = new Audio('../assets/sounds/gameOverSound.mp3')
+  this.keyboardSound = new Audio('./assets/sounds/keyboardSound.mp3')
+  this.deathSound = new Audio('./assets/sounds/deathSound.mp3')
+  this.victorySound = new Audio('./assets/sounds/victorySound.mp3')
+  this.gameOverSound = new Audio('./assets/sounds/gameOverSound.mp3')
 
   let startPosition = document.querySelector(`.row${this.pos.x} > .col${this.pos.y}`);
   startPosition.classList.add('mainCharacter');

@@ -63,31 +63,33 @@ function Game() {
 
   let self = this
 
+  this.backGroundMusic = new Audio('sounds/backGroundMusic.mp3')
+
   let scoreHtml = document.getElementById('currentScore')
   let livesHtml = document.getElementById('lives')
 
   this.restartMap = function () {
-      clearInterval(timerId)
-      mapaAcrear.removeMap();
-      mapaAcrear.createMap();
-      enemy1 = new Enemy(12, 9, 1, pacman);
-      enemy2 = new Enemy(13, 9, 2, pacman);
-      enemy3 = new Enemy(12, 11, 3, pacman);
-      enemy4 = new Enemy(13, 11, 4, pacman);
+    clearInterval(timerId)
+    mapaAcrear.removeMap();
+    mapaAcrear.createMap();
+    enemy1 = new Enemy(12, 9, 1, pacman);
+    enemy2 = new Enemy(13, 9, 2, pacman);
+    enemy3 = new Enemy(12, 11, 3, pacman);
+    enemy4 = new Enemy(13, 11, 4, pacman);
 
 
-      pacman.lives = 3;
-      pacman.score = 0
-      pacman.pos = { x: 5, y: 4 }
-      let startPosition = document.querySelector(`.row${5} > .col${4}`);
-      startPosition.classList.add('mainCharacter')
-      lives.innerText = 3;
-      scoreHtml.innerText = 0;
-      timerId = setInterval(game.play, 400);
+    pacman.lives = 3;
+    pacman.score = 0
+    pacman.pos = { x: 5, y: 4 }
+    let startPosition = document.querySelector(`.row${5} > .col${4}`);
+    startPosition.classList.add('mainCharacter')
+    lives.innerText = 3;
+    scoreHtml.innerText = 0;
+    timerId = setInterval(game.play, 400);
   }
 
   this.play = function () {
-    
+
     pacman.movement();
     enemy1.movement();
     enemy2.movement();
@@ -105,8 +107,9 @@ function Game() {
     let button = document.getElementById('start-btn')
     button.style.visibility = 'hidden'
     menu.style.visibility = 'hidden'
+    self.backGroundMusic.volume = 0.2;
+    self.backGroundMusic.play();
     timerId = setInterval(game.play, 400);
-
   })
 
 
@@ -114,16 +117,17 @@ function Game() {
   let gameOverScreen = document.getElementById('game-over-screen')
   let gameOver = document.getElementById('game-over')
   let restartBtn = document.getElementById('restart-btn')
+
   this.gameOver = function () {
     if (pacman.lives <= 0) {
-      //pacman.deathSound.pause();
-      //pacman.gameOverSound.play();
+      self.backGroundMusic.pause();
+      pacman.gameOverSound.play();
       gameOverScreen.style.visibility = 'visible'
       gameOver.style.visibility = 'visible'
       restartBtn.style.visibility = 'visible'
       clearInterval(timerId)
     }
-    //Boton de Restart tras el Game Over (falta que se reinicie el mapa)
+    //Boton de Restart tras el Game Over
     restartBtn.addEventListener('click', function (e) {
       clearInterval(timerId)
       gameOverScreen.style.visibility = 'hidden'
@@ -132,44 +136,32 @@ function Game() {
       //button.style.visibility = 'visible'
       //menu.style.visibility = 'visible'
       self.restartMap();
+      self.backGroundMusic.currentTime = 0;
+      self.backGroundMusic.play();
     })
-    /*this.gameOver = function () {
-      if (pacman.lives <= 0) {
-        clearInterval(timerId)
-        window.alert('Game Over')
-      }
-    }*/
   }
+
+
   let victoryContainer = document.getElementById('victory-container')
   let victoryRestartBtn = document.getElementById('victory-restart-btn')
   console.log(pacman.score)
+
   this.victory = function () {
     console.log(pacman.score)
     if (pacman.score === 1000) {
+      self.backGroundMusic.pause();
       pacman.victorySound.play();
       victoryContainer.style.visibility = 'visible'
       clearInterval(timerId)
       victoryRestartBtn.addEventListener('click', function (e) {
         victoryContainer.style.visibility = 'hidden';
-        //button.style.visibility = 'visible';
-        //menu.style.visibility = 'visible';
 
-
-        /*mapaAcrear = new MapCreator(map1)
-        mapaAcrear.createMap();
-        pacman.pos = {x:5,y:4}
-        pacman.score = 0
-        enemy1.pos = {x : 12, y:9}
-        enemy1.pos = {x : 13, y:9}
-        enemy1.pos = {x : 12, y:11}
-        enemy1.pos = {x : 13, y:11}
-        self.play();*/
         self.restartMap();
+        self.backGroundMusic.currentTime = 0;
+        self.backGroundMusic.play();
       })
     }
   }
-
-
 }
 
 

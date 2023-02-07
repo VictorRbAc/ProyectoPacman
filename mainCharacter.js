@@ -18,7 +18,7 @@ function MainCharacter() {
   this.keyboardSound = new Audio('sounds/keyboardSound.mp3')
   this.deathSound = new Audio('sounds/deathSound.mp3')
   this.victorySound = new Audio('sounds/victorySound.mp3')
-  this.gameOverSound = new Audio('sounds/this.gameOverSound.mp3')
+  this.gameOverSound = new Audio('sounds/gameOverSound.mp3')
 
   let startPosition = document.querySelector(`.row${this.pos.x} > .col${this.pos.y}`);
   startPosition.classList.add('mainCharacter')
@@ -74,8 +74,9 @@ function MainCharacter() {
 
 
       if (aux.includes("enemy")) {
-        this.deathSound.play()
+        
         self.lives -= 1
+        this.deathSound.play()
         livesHtml.innerText = self.lives;
 
         //ABIAN CAMBIADO

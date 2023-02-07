@@ -1,12 +1,11 @@
-import { Enemy } from './enemy.js';
-import { MainCharacter } from './mainCharacter.js';
-import { MapCreator } from './mapCreator.js';
+import { Enemy } from '/script/enemy.js';
+import { MainCharacter } from '/script/mainCharacter.js';
+import { MapCreator } from '/script/mapCreator.js';
 
-let map1 = [
-
-  //Leyenda: 0 = muro
-  //         1 = bolita
-  //         2 = pasillo
+// 0 = wall
+// 1 = pc
+// 2 = hall
+let map = [
   [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
   [0, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 0],
   [0, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 1, 0],
@@ -18,7 +17,7 @@ let map1 = [
   [0, 1, 0, 0, 0, 0, 0, 0, 3, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0],
   [0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0],
   [0, 0, 1, 0, 0, 0, 0, 1, 1, 2, 2, 2, 1, 1, 0, 0, 0, 1, 0, 0],
-  [0, 1, 1, 1, 1, 1, 1, 1, 0, 0, 2, 0, 0, 1, 1, 1, 1, 1, 1, 0],
+  [0, 1, 1, 1, 1, 1, 1, 1, 0, 2, 2, 2, 0, 1, 1, 1, 1, 1, 1, 0],
   [0, 1, 0, 0, 0, 0, 0, 1, 0, 2, 2, 2, 0, 1, 0, 0, 0, 0, 1, 0],
   [0, 1, 0, 0, 0, 0, 0, 1, 0, 2, 2, 2, 0, 1, 0, 0, 0, 0, 1, 0],
   [0, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 0],
@@ -28,69 +27,70 @@ let map1 = [
   [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
 ];
 
-
 window.addEventListener('keydown', function (e) { // Cambiamos la propiedad 'direction' de la serpiente según la tecla pulsada.
   switch (e.key) {
     case 'ArrowUp':
-      pacman.direction = 'up'
+      developer.direction = 'up'
 
       break
     case 'ArrowDown':
-      pacman.direction = 'down'
+      developer.direction = 'down'
 
       break
     case 'ArrowLeft':
-      pacman.direction = 'left'
+      developer.direction = 'left'
 
       break
     case 'ArrowRight':
-      pacman.direction = 'right'
+      developer.direction = 'right'
 
       break
   }
 })
 
-let mapaAcrear = new MapCreator(map1)
-mapaAcrear.createMap();
-let pacman = new MainCharacter();
-let enemy1 = new Enemy(12, 9, 1, pacman);
-let enemy2 = new Enemy(13, 9, 2, pacman);
-let enemy3 = new Enemy(12, 11, 3, pacman);
-let enemy4 = new Enemy(13, 11, 4, pacman);
+let mapToCreate = new MapCreator(map)
+mapToCreate.createMap();
+let developer = new MainCharacter();
+let enemy1 = new Enemy(12, 9, 1, developer);
+let enemy2 = new Enemy(13, 9, 2, developer);
+let enemy3 = new Enemy(12, 11, 3, developer);
+let enemy4 = new Enemy(13, 11, 4, developer);
 
 
 function Game() {
 
   let self = this
 
-  this.backGroundMusic = new Audio('sounds/backGroundMusic.mp3')
+  this.backGroundMusic = new Audio('/assets/sounds/backGroundMusic.mp3')
 
   let scoreHtml = document.getElementById('currentScore')
+  let maxScoreHtml = document.getElementById('maxScore')
   let livesHtml = document.getElementById('lives')
 
   this.restartMap = function () {
     clearInterval(timerId)
-    mapaAcrear.removeMap();
-    mapaAcrear.createMap();
-    enemy1 = new Enemy(12, 9, 1, pacman);
-    enemy2 = new Enemy(13, 9, 2, pacman);
-    enemy3 = new Enemy(12, 11, 3, pacman);
-    enemy4 = new Enemy(13, 11, 4, pacman);
+    mapToCreate.removeMap();
+    mapToCreate.createMap();
+    enemy1 = new Enemy(12, 9, 1, developer);
+    enemy2 = new Enemy(13, 9, 2, developer);
+    enemy3 = new Enemy(12, 11, 3, developer);
+    enemy4 = new Enemy(13, 11, 4, developer);
 
 
-    pacman.lives = 3;
-    pacman.score = 0
-    pacman.pos = { x: 5, y: 4 }
+    developer.lives = 3;
+    developer.score = 0
+    developer.pos = { x: 5, y: 4 }
     let startPosition = document.querySelector(`.row${5} > .col${4}`);
     startPosition.classList.add('mainCharacter')
     lives.innerText = 3;
     scoreHtml.innerText = 0;
+    maxScoreHtml.innerText = 0;
     timerId = setInterval(game.play, 400);
   }
 
   this.play = function () {
 
-    pacman.movement();
+    developer.movement();
     enemy1.movement();
     enemy2.movement();
     enemy3.movement();
@@ -112,16 +112,15 @@ function Game() {
     timerId = setInterval(game.play, 400);
   })
 
-
   //pantalla de Game Over (98-106)
   let gameOverScreen = document.getElementById('game-over-screen')
   let gameOver = document.getElementById('game-over')
   let restartBtn = document.getElementById('restart-btn')
 
   this.gameOver = function () {
-    if (pacman.lives <= 0) {
+    if (developer.lives <= 0) {
       self.backGroundMusic.pause();
-      pacman.gameOverSound.play();
+      developer.gameOverSound.play();
       gameOverScreen.style.visibility = 'visible'
       gameOver.style.visibility = 'visible'
       restartBtn.style.visibility = 'visible'
@@ -141,16 +140,15 @@ function Game() {
     })
   }
 
-
   let victoryContainer = document.getElementById('victory-container')
   let victoryRestartBtn = document.getElementById('victory-restart-btn')
-  console.log(pacman.score)
+  console.log(developer.score)
 
   this.victory = function () {
-    console.log(pacman.score)
-    if (pacman.score === 1000) {
+    console.log(developer.score)
+    if (developer.score === 1000) {
       self.backGroundMusic.pause();
-      pacman.victorySound.play();
+      developer.victorySound.play();
       victoryContainer.style.visibility = 'visible'
       clearInterval(timerId)
       victoryRestartBtn.addEventListener('click', function (e) {
@@ -164,34 +162,4 @@ function Game() {
   }
 }
 
-
 let game = new Game();
-
-//let timerId = setInterval(game.play, 1000);
-
-
-/*
-mapaAcrear.createMap();
-
-//document.getElementsByClassName(`row${mainCharacter.pos.x} bolita`)
-let pacman = new MainCharacter();
-//pacman.insertMc();
-
-let enemy1 = new Enemy(12, 9, 1, pacman);
-//enemy1.insertEnemy();
-
-//let timerId1 = setInterval(enemy1.movement, 1000);
-
-let enemy2 = new Enemy(13, 9, 2, pacman);
-//enemy2.insertEnemy()
-//let timerId2 = setInterval(enemy2.movement, 1000);
-
-
-let enemy3 = new Enemy(12, 11, 3, pacman);
-//enemy3.insertEnemy();
-//let timerId3 = setInterval(enemy3.movement, 1000);
-
-
-let enemy4 = new Enemy(13, 11, 4, pacman);
-//enemy4.insertEnemy();
-//let timerId4 = setInterval(enemy4.movement, 1000);*/

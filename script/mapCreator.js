@@ -1,5 +1,4 @@
 function MapCreator(map) {
-
     this.map = map;
 
     let mapContainer = document.querySelector('#mapContainer');
@@ -15,13 +14,13 @@ function MapCreator(map) {
 
                 let td = document.createElement('td');
                 if (col === 1) {
-                    td.classList.add(`col${idx}`, 'pasillo', 'bolita');
+                    td.classList.add(`col${idx}`, 'hall', 'pc');
                 } else if (col === 0) {
-                    td.classList.add(`col${idx}`, `blue`);
+                    td.classList.add(`col${idx}`, `wall`);
                 } else if (col === 2) {
-                    td.classList.add(`col${idx}`, `pasillo`);
+                    td.classList.add(`col${idx}`, `hall`);
                 }else if(col === 3){
-                    td.classList.add(`col${idx}`, `pasillo`);
+                    td.classList.add(`col${idx}`, `hall`);
                 }
                 tr.appendChild(td);
             });
@@ -36,5 +35,4 @@ function MapCreator(map) {
         }
     }
 }
-
 export { MapCreator };

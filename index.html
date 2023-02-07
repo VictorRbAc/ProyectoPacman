@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PacMan</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <style>
@@ -19,33 +19,34 @@
         <button id="start-btn">Start</button>
     <div>
         <h1>DEVMAN</h1>
+
         <div id="interface">
             <div id="scoreContainer">
-                <div id="scoraLabel">
+
+                <div id="scoreLabel">
                     <label>Current Score: <span id="currentScore">0</span> points</label>
                     <label>Max Score: <span id="maxScore">0</span> points</label>
                     <label>Lives: <span id="lives">0</span></label>
                 </div>
-                <img src="images/fondoGamer.png" alt="arcadeImage">
+
+                <img src="assets/images/backgroundGamer.png" alt="arcadeImage">
+
             </div>
+
             <div id="mapContainer">
-    
             </div>
+
             <div id="victory-container">
-                <img id = "victory-screen" src = "/images/win.png">
+                <img id = "victory-screen" src = "assets/images/win.png">
                 <button id="victory-restart-btn">Restart</button>
             </div>
+
             <div id="game-over">
-                <img id="game-over-screen" src="/images/gameOver.png">
+                <img id="game-over-screen" src="assets/images/gameOver.png">
                 <button id="restart-btn">Restart</button>
             </div>
         </div>
     </div>
-    
-    
-
-
-    <script src="main.js" type="module"></script>
+    <script src="script/main.js" type="module"></script>
 </body>
-
 </html>

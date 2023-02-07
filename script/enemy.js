@@ -24,8 +24,7 @@ function Enemy(x, y, number, mc) {
     let directions = ['up', 'down', 'left', 'right'];
     self.direction = directions[Math.floor(Math.random() * 4)];
 
-    let positionEnemy = document.querySelector(`.row${nextX} > .col${nextY}`);
-
+    
     let x = 0;
     let y = 0;
     switch (self.direction) {
@@ -44,7 +43,9 @@ function Enemy(x, y, number, mc) {
     }
 
     let newPosition = document.querySelector(`.row${self.pos.x + x} > .col${self.pos.y + y}`);
-    if (newPosition.classList.contains('pasillo')) {
+    let positionEnemy = document.querySelector(`.row${nextX} > .col${nextY}`);
+
+    if (newPosition.classList.contains('hall')) {
       if (newPosition.classList.contains('mainCharacter')) {
         //mc.keyboardSound.pause()
         mc.deathSound.play()
@@ -70,11 +71,6 @@ function Enemy(x, y, number, mc) {
     let directions = ['up', 'down', 'left', 'right'];
     self.direction = directions[Math.floor(Math.random() * 4)];
 
-    //      console.log(`Enemy${self.number}`)
-    //Pisción actual del enemigo cuando llamas a movement
-    let positionEnemy = document.querySelector(`.row${self.pos.x} > .col${self.pos.y}`);
-
-    let newPosition;
     switch (self.direction) {
 
       case 'up':
@@ -94,7 +90,5 @@ function Enemy(x, y, number, mc) {
         break;
     }
   }
-  //this.timerId = setInterval(this.movement, 1000)
-
 }
 export { Enemy }

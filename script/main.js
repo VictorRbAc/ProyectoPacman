@@ -147,8 +147,8 @@ function Game() {
   this.victory = function () {
     console.log(developer.score)
     //8600 puntos serían en total con los pc que hay para recogerlos todo
-    //Ponemos 1000 puntos para el deploy probarlo todo rápido
-    if (developer.score === 1000) {
+    //Ponemos 500 puntos para el deploy probarlo todo rápido
+    if (developer.score === 500) {
       self.backGroundMusic.pause();
       developer.victorySound.play();
       victoryContainer.style.visibility = 'visible'

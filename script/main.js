@@ -112,50 +112,62 @@ function Game() {
     timerId = setInterval(game.play, 1000);
   })
 
-  //pantalla de Game Over (98-106)
-  let gameOverScreen = document.getElementById('game-over-screen')
-  let gameOver = document.getElementById('game-over')
-  let restartBtn = document.getElementById('restart-btn')
+
+  function visibilityVictory(html,visibility){
+    if(visibility === 'visible'){
+      html.style.visibility = 'visible';
+    }else if(visibility === 'hidden'){
+      html.style.visibility = 'hidden';
+    }
+  }
+  function visibilityGameOver(html1,html2,html3,visibility){
+    if(visibility === 'visible'){
+      html1.style.visibility = 'visible';
+      html2.style.visibility = 'visible';
+      html3.style.visibility = 'visible';
+    }else if(visibility === 'hidden'){
+      html1.style.visibility = 'hidden';
+      html2.style.visibility = 'hidden';
+      html3.style.visibility = 'hidden';
+    }
+  }
+
+
+
+  let gameOverScreen = document.getElementById('game-over-screen');
+  let gameOver = document.getElementById('game-over');
+  let restartBtn = document.getElementById('restart-btn');
 
   this.gameOver = function () {
     if (developer.lives <= 0) {
       self.backGroundMusic.pause();
       developer.gameOverSound.play();
-      gameOverScreen.style.visibility = 'visible'
-      gameOver.style.visibility = 'visible'
-      restartBtn.style.visibility = 'visible'
-      clearInterval(timerId)
+      visibilityGameOver(gameOverScreen,gameOver,restartBtn,'visible');
+      clearInterval(timerId);
     }
-    //Boton de Restart tras el Game Over
+
     restartBtn.addEventListener('click', function (e) {
-      clearInterval(timerId)
-      gameOverScreen.style.visibility = 'hidden'
-      gameOver.style.visibiliy = 'hidden'
-      restartBtn.style.visibility = 'hidden'
-      //button.style.visibility = 'visible'
-      //menu.style.visibility = 'visible'
+      visibilityGameOver(gameOverScreen,gameOver,restartBtn,'hidden');
       self.restartMap();
       self.backGroundMusic.currentTime = 0;
       self.backGroundMusic.play();
     })
   }
 
-  let victoryContainer = document.getElementById('victory-container')
-  let victoryRestartBtn = document.getElementById('victory-restart-btn')
-  console.log(developer.score)
+  let victoryContainer = document.getElementById('victory-container');
+  let victoryRestartBtn = document.getElementById('victory-restart-btn');
 
   this.victory = function () {
-    console.log(developer.score)
-    //8600 puntos serían en total con los pc que hay para recogerlos todo
-    //Ponemos 500 puntos para el deploy probarlo todo rápido
     if (developer.score === 500) {
+
       self.backGroundMusic.pause();
       developer.victorySound.play();
-      victoryContainer.style.visibility = 'visible'
-      clearInterval(timerId)
-      victoryRestartBtn.addEventListener('click', function (e) {
-        victoryContainer.style.visibility = 'hidden';
+      visibilityVictory(victoryContainer,'visible')
+      clearInterval(timerId);
 
+      victoryRestartBtn.addEventListener('click', function (e) {
+
+        visibilityVictory(victoryContainer,'hidden');
         self.restartMap();
         self.backGroundMusic.currentTime = 0;
         self.backGroundMusic.play();
